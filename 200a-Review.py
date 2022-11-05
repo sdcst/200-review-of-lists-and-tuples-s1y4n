@@ -4,33 +4,22 @@
 def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
-    integers = []
-    for i in myList:
-        if int(i) == i:
-            integers.append(i)
+    integers = [i for i in myList if isinstance(i, (int))]
     return integers
 
-    """
-    integers = [val for val in mylist if isinstance(val, (int))]
-    """
+    
 def getFactor(myList,factor):
     # myList : expected list or tuple
     # factor : integer
     # iterate through the list and add the number to the list if
     # it is a factor of the number
-    factors = []
-    for i in myList:
-        if int(i/factor) == i/factor:
-            factors.append(i)
+    factors = [i for i in myList if int(i/factor) == i/factor]
     return factors
 
 def getNegatives(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the negative numbers to the new list
-    negatives = []
-    for i in myList:
-        if i < 0:
-            negatives.append(i)
+    negatives = [i for i in myList if i < 0]
     return negatives
 
 def getIntersection(list1,list2):
@@ -56,6 +45,8 @@ def getMerge(list1,list2):
     # if the list2 element is in list1, add it at the position where it occurs in list1
     # if the list2 element is not in list1, add it to the end
     merge = list1.copy()
+    
+    #add it to the index origin?
     count = 0
     for i in list2:
         if i in list1:
@@ -65,7 +56,6 @@ def getMerge(list1,list2):
             merge.append(i)
     return merge
 
-#5,10,15,2,4,6,8, -2, -4, -6,
 def main():
     easy1 = [5,10,15,2,4,6,8]
     easy2 = [-2,-4,-6,2,4,6,0.1]
